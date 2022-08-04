@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  overflow-y: hidden;
+  padding: 0px;
   font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

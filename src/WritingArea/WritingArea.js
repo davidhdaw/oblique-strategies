@@ -51,10 +51,13 @@ function WritingArea({addLog}) {
 
     const submitWriting = () => {
         const newLog = {
+            id: Date.now(),
             usedStrats: usedStrats,
             writing: writing,
-            date: dayjs()
+            date: dayjs().format('MM/DD/YYYY')
         }
+        const logAsString = JSON.stringify(newLog)
+        localStorage.setItem(newLog.id, logAsString)
         addLog(newLog)
     }
 
