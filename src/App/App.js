@@ -1,5 +1,7 @@
 import './App.css';
 import WritingArea from '../WritingArea/WritingArea'
+import About from '../About/About'
+import Logs from '../Logs/Logs'
 import { Link, Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
@@ -15,17 +17,44 @@ function App() {
     <div className="App">
       <nav>
       <Link to="/" className="link-style">
-            Home
+        Home
       </Link>
       <Link to="/about" className="link-style">
-            About
+        About
       </Link>
-      <Link to="/log" className="link-style">
-            Daily Pages
+      <Link to="/logs" className="link-style">
+        Daily Pages
       </Link>
       </nav>
       <h1 className='page-title'>Oblique Strategies</h1>
-      <WritingArea addLog={addLog}/>
+      <Route
+        exact path="/"
+        render={() => (
+          <WritingArea addLog={addLog}/>
+        )}
+      />
+      <Route
+        path="/about"
+        render={() => (
+          <About />
+        )}
+      />
+      {logEntries[0] && 
+        <Route
+          path="/logs"
+          render={() => (
+              <Logs logEntries={logEntries} />
+          )}
+        />
+      }
+      {!logEntries[0] && 
+        <Route
+          path="/logs"
+          render={() => (
+            <p>No log entries yet</p>
+          )}
+        />
+      }
     </div>
   );
 }
