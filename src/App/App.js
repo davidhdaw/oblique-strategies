@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import WritingArea from '../WritingArea/WritingArea'
 import { Link, Route } from 'react-router-dom';
 
 function App() {
@@ -17,17 +17,7 @@ function App() {
       </Link>
       </nav>
       <h1 className='page-title'>Oblique Strategies</h1>
-      <article className='main-content'>
-        <textarea />
-        <div className="card">
-          <h2>Use an old idea.</h2>
-          <p>32</p>
-        </div>
-      </article>
-      <footer>
-        <div className='word-count'>250/750</div>
-        <a className='submit-button'>Submit</a>
-      </footer>
+      <WritingArea />
     </div>
   );
 }
