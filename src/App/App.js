@@ -1,8 +1,16 @@
 import './App.css';
 import WritingArea from '../WritingArea/WritingArea'
 import { Link, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
+  const [logEntries, setLogEntries] = useState([])
+
+  const addLog = (newLog) => {
+    setLogEntries([...logEntries, newLog])
+  }
+
   return (
     <div className="App">
       <nav>
@@ -17,7 +25,7 @@ function App() {
       </Link>
       </nav>
       <h1 className='page-title'>Oblique Strategies</h1>
-      <WritingArea />
+      <WritingArea addLog={addLog}/>
     </div>
   );
 }

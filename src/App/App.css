@@ -59,6 +59,7 @@ a:hover {
 textarea {
   font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
   width: 40vw;
+  min-width: 480px;
   height: 50vh;
   background-color: var(--background);
   color: var(--text-border);
@@ -68,10 +69,16 @@ textarea {
   margin-right: 3vw;
 }
 
+textarea:focus {
+  outline: none !important;
+}
+
 .card {
   border: 3px solid var(--text-border);
   width: 10vw;
+  min-width: 200px;
   height: 25vh;
+  min-height: 250px;
   padding: 24px;
   text-align: center;
   display: flex;
