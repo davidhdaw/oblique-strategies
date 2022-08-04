@@ -10,6 +10,7 @@ function WritingArea({addLog}) {
     const [writing, setWriting] = useState('')
     const [timer, setTimer] = useState(90)
     const [timeoutID, setTimeoutID] = useState(0)
+    const [buttonTried, setButtonTried] = useState(false)
     const [mostWords, setmostWords] = useState(0)
 
     
@@ -26,6 +27,7 @@ function WritingArea({addLog}) {
       }, [timer])
 
       useEffect(() => {
+        setButtonTried(false)
         if ((writing.split(' ').length - 1) > mostWords) {
             setmostWords(writing.split(' ').length - 1)
             setTimer(90)
@@ -50,15 +52,19 @@ function WritingArea({addLog}) {
     }
 
     const submitWriting = () => {
-        const newLog = {
-            id: Date.now(),
-            usedStrats: usedStrats,
-            writing: writing,
-            date: dayjs().format('MM/DD/YYYY')
+       if (writing.split(' ').length > 750) {
+            setButtonTried(false)
+            const newLog = {
+                id: Date.now(),
+                usedStrats: usedStrats,
+                writing: writing,
+                date: dayjs().format('MM/DD/YYYY')
+            }
+            const logAsString = JSON.stringify(newLog)
+            localStorage.setItem(newLog.id, logAsString)
+            addLog(newLog)
         }
-        const logAsString = JSON.stringify(newLog)
-        localStorage.setItem(newLog.id, logAsString)
-        addLog(newLog)
+        else {setButtonTried(true)}
     }
 
     return (
@@ -71,7 +77,11 @@ function WritingArea({addLog}) {
                 <StrategyCard strategy={currentStrat} timer={timer} />
             </article>
             <footer>
-            <div className='word-count'>{writing.split(' ').length - 1}/750</div>
+            <div className='word-count'   style={{
+            backgroundColor: buttonTried ? 'red' : ((writing.split(' ').length > 750) ? '#6F9E9E' : ''),
+            }}>
+                {writing.split(' ').length - 1}/750
+            </div>
             <a className='submit-button' onClick={() => submitWriting()}>Submit</a>
             </footer>
         </>
