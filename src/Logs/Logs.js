@@ -9,8 +9,8 @@ function Logs({logEntries}) {
                 <h2>{logEntry.date.$M+1}/{logEntry.date.$D}/{logEntry.date.$y}</h2>
                 <p>Strategies:</p>
                 <ul>
-                    {logEntry.usedStrats.map(usedstrat => (
-                        <li key={Date.now()}>{usedstrat.strategy}</li>
+                    {logEntry.usedStrats.map(usedStrat => (
+                        <li key={usedStrat.id}>{usedStrat.strategy}</li>
                     ))}    
                 </ul>
             </div>
