@@ -13,6 +13,12 @@ function App() {
     setLogEntries([...logEntries, newLog])
   }
 
+  useEffect(() => {
+    let savedLogs = Object.values(localStorage).map(object => JSON.parse(object));
+    savedLogs.sort((a,b) => a.id - b.id);
+    setLogEntries(savedLogs)
+  }, [])
+
   return (
     <div className="App">
       <nav>
@@ -43,7 +49,9 @@ function App() {
         <Route
           path="/logs"
           render={() => (
+            <div className='log-area'>
               <Logs logEntries={logEntries} />
+            </div>
           )}
         />
       }
