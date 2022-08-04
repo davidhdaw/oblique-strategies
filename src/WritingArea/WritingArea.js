@@ -58,11 +58,13 @@ function WritingArea({addLog}) {
                 id: Date.now(),
                 usedStrats: usedStrats,
                 writing: writing,
-                date: dayjs().format('MM/DD/YYYY')
+                date: dayjs().format('MM/DD/YYYY'),
+                time: dayjs().format('HH:mm:ss')
             }
             const logAsString = JSON.stringify(newLog)
             localStorage.setItem(newLog.id, logAsString)
             addLog(newLog)
+            window.location = "/logs";
         }
         else {setButtonTried(true)}
     }
