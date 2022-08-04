@@ -2,18 +2,22 @@ import './WritingArea.css';
 import React, { useState, useEffect } from 'react';
 import { returnStrategy } from '../apiCalls';
 import StrategyCard from '../StrategyCard/StrategyCard'
+const dayjs = require ('dayjs')
 
-function WritingArea() {
+function WritingArea({addLog}) {
     const [currentStrat, setCurrentStrat] = useState({strategy: ''})
+    const [usedStrats, setUsedStrats] = useState([])
     const [writing, setWriting] = useState('')
     const [timer, setTimer] = useState(90)
     const [timeoutID, setTimeoutID] = useState(0)
     const [mostWords, setmostWords] = useState(0)
+
     
     useEffect(() => {
         returnStrategy()
         .then((data) => {
             setCurrentStrat(data)
+            setUsedStrats([...usedStrats, data])
         })
       }, [])
 
@@ -39,9 +43,19 @@ function WritingArea() {
             returnStrategy()
             .then((data) => {
                 setCurrentStrat(data)
+                setUsedStrats([...usedStrats, data])
                 setTimer(90)
             })
         }
+    }
+
+    const submitWriting = () => {
+        const newLog = {
+            usedStrats: usedStrats,
+            writing: writing,
+            date: dayjs()
+        }
+        addLog(newLog)
     }
 
     return (
@@ -55,7 +69,7 @@ function WritingArea() {
             </article>
             <footer>
             <div className='word-count'>{writing.split(' ').length - 1}/750</div>
-            <a className='submit-button'>Submit</a>
+            <a className='submit-button' onClick={() => submitWriting()}>Submit</a>
             </footer>
         </>
     );
