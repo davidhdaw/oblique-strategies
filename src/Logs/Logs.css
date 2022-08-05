@@ -1,0 +1,13 @@
+.log-link {
+    border: none;
+    padding: 0;
+}
+  
+  .log-link:hover {
+    border: none;
+    color: var(--text-border);
+    background-color: var(--background);
+    text-decoration: underline;
+    padding: 0;
+    text-transform: uppercase;
+  }

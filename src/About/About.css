@@ -1,0 +1,12 @@
+.about {
+    width: 40vw;
+    min-width: 480px;
+    height: 50vh;
+    overflow-y: scroll;
+    margin-right: 5vw;
+    margin-left: 60px;
+  }
+
+  .about::-webkit-scrollbar {
+    display: none;
+  }
