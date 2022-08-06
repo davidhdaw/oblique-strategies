@@ -29,22 +29,21 @@ function App() {
     })
   }
 
-  const getEntries = async () => {
-      const data = await getDocs(userEntryQuery)
-      setLogEntries(data.docs.map((doc) => ({...doc.data()})))
-  }
-
   useEffect(() => {
     if (localStorage.userID) {
       setIsAuth(true)
     }
+    const getEntries = async () => {
+      const data = await getDocs(userEntryQuery)
+      setLogEntries(data.docs.map((doc) => ({...doc.data()})))
+    }
     getEntries()
-  }, [])
+  }, [isAuth])
 
 
   return (
     <div className="App">
-      {!isAuth && <Login setIsAuth={setIsAuth} getEntries={getEntries} setLogEntries={setLogEntries}/>}
+      {!isAuth && <Login setIsAuth={setIsAuth} />}
       <nav>
       <Link to="/" className="link-style">
         Home

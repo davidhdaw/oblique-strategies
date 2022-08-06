@@ -4,14 +4,13 @@ import { auth, provider} from '../firebase-config'
 import { signInWithPopup } from 'firebase/auth'
 
 
-function login({setIsAuth, getEntries}) {
+function login({setIsAuth}) {
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             localStorage.setItem('userID', result.user.uid)
             setIsAuth(true)
-            
-        }).then(getEntries())
+        })
     }
     return(
         <div className='login'>
@@ -21,5 +20,6 @@ function login({setIsAuth, getEntries}) {
         </div>
     )
 }
+
 
 export default login;
