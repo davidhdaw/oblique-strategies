@@ -7,35 +7,44 @@ import SingleEntry from '../SingleEntry/SingleEntry'
 import { Link, Route, Switch } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
-import { auth } from '../firebase-config';
-
+import { auth, db } from '../firebase-config';
+import { addDoc, collection, getDocs, where, query } from 'firebase/firestore'
 
 function App() {
   const [logEntries, setLogEntries] = useState([])
   const [isAuth, setIsAuth] = useState(false)
 
-  const addLog = (newLog) => {
+  const entriesCollectionRef = collection(db, "entries")
+  const userEntryQuery = query(collection(db, "entries"), where("authorID", "==", localStorage.userID || 0))
+
+  const addLog = async (newLog) => {
+    await addDoc(entriesCollectionRef, newLog)
     setLogEntries([...logEntries, newLog])
   }
 
   const signUserOut = () => {
     signOut(auth).then(() => {
-      localStorage.removeItem('isAuth')
+      localStorage.removeItem('userID')
       setIsAuth(false);
     })
   }
 
+  const getEntries = async () => {
+      const data = await getDocs(userEntryQuery)
+      setLogEntries(data.docs.map((doc) => ({...doc.data()})))
+  }
+
   useEffect(() => {
-    let savedLogs = Object.values(localStorage).map(object => JSON.parse(object));
-    setIsAuth(localStorage.getItem('isAuth'))
-    savedLogs.sort((a,b) => a.id - b.id);
-    const clearLoginEntry = savedLogs.filter(log => log.id)
-    setLogEntries(clearLoginEntry)
+    if (localStorage.userID) {
+      setIsAuth(true)
+    }
+    getEntries()
   }, [])
+
 
   return (
     <div className="App">
-      {!isAuth && <Login setIsAuth={setIsAuth} />}
+      {!isAuth && <Login setIsAuth={setIsAuth} getEntries={getEntries} setLogEntries={setLogEntries}/>}
       <nav>
       <Link to="/" className="link-style">
         Home

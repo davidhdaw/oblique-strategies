@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { returnStrategy } from '../apiCalls'
 import StrategyCard from '../StrategyCard/StrategyCard'
 import { useHistory } from 'react-router-dom'
+import { auth } from '../firebase-config'
 const dayjs = require ('dayjs')
 
 function WritingArea({addLog, isAuth}) {
@@ -55,6 +56,7 @@ function WritingArea({addLog, isAuth}) {
     }
 
     const submitWriting = () => {
+        console.log(auth.currentUser.uid)
        if (writing.split(' ').length > 750) {
             setButtonTried(false)
             const newLog = {
@@ -62,7 +64,9 @@ function WritingArea({addLog, isAuth}) {
                 usedStrats: usedStrats,
                 writing: writing,
                 date: dayjs().format('MM/DD/YYYY'),
-                time: dayjs().format('HH:mm:ss')
+                time: dayjs().format('HH:mm:ss'),
+                authorName: auth.currentUser.displayName,
+                authorID: auth.currentUser.uid
             }
             const logAsString = JSON.stringify(newLog)
             localStorage.setItem(newLog.id, logAsString)
