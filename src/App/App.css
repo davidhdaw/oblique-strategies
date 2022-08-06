@@ -23,7 +23,7 @@ nav {
   border-bottom: 3px solid var(--text-border);
 }
 
-a, .word-count {
+a, .word-count, .sign-out {
   border-left: 3px solid var(--text-border);
   text-decoration: none;
   color: var(--text-border);
@@ -31,13 +31,20 @@ a, .word-count {
   text-transform: uppercase;
 }
 
-a:hover {
+a:hover, .sign-out:hover {
   border-left: 3px solid var(--text-border);
   text-decoration: underline;
   background-color: #6F9E9E;
   color: #FDF8ED;
   padding: 6px 12px;
   text-transform: uppercase;
+}
+
+.sign-out {
+  position: absolute;
+  top: 0px;
+  right:0px;
+  background-color: var(--background);
 }
 
 .page-title {

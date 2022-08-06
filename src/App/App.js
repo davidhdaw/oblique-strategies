@@ -2,25 +2,49 @@ import './App.css';
 import WritingArea from '../WritingArea/WritingArea'
 import About from '../About/About'
 import Logs from '../Logs/Logs'
+import Login from '../Login/login'
 import SingleEntry from '../SingleEntry/SingleEntry'
 import { Link, Route, Switch } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { signOut } from 'firebase/auth';
+import { auth, db } from '../firebase-config';
+import { addDoc, collection, getDocs, where, query } from 'firebase/firestore'
 
 function App() {
   const [logEntries, setLogEntries] = useState([])
+  const [isAuth, setIsAuth] = useState(false)
 
-  const addLog = (newLog) => {
+  const entriesCollectionRef = collection(db, "entries")
+  const userEntryQuery = query(collection(db, "entries"), where("authorID", "==", localStorage.userID || 0))
+
+  const addLog = async (newLog) => {
+    await addDoc(entriesCollectionRef, newLog)
     setLogEntries([...logEntries, newLog])
   }
 
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      localStorage.removeItem('userID')
+      setIsAuth(false);
+    })
+  }
+
+  const getEntries = async () => {
+      const data = await getDocs(userEntryQuery)
+      setLogEntries(data.docs.map((doc) => ({...doc.data()})))
+  }
+
   useEffect(() => {
-    let savedLogs = Object.values(localStorage).map(object => JSON.parse(object));
-    savedLogs.sort((a,b) => a.id - b.id);
-    setLogEntries(savedLogs)
+    if (localStorage.userID) {
+      setIsAuth(true)
+    }
+    getEntries()
   }, [])
+
 
   return (
     <div className="App">
+      {!isAuth && <Login setIsAuth={setIsAuth} getEntries={getEntries} setLogEntries={setLogEntries}/>}
       <nav>
       <Link to="/" className="link-style">
         Home
@@ -31,13 +55,14 @@ function App() {
       <Link to="/logs" className="link-style">
         Daily Pages
       </Link>
+      {isAuth && <button className='sign-out' onClick={signUserOut}>Sign Out</button>}
       </nav>
       <h1 className='page-title'>Oblique Strategies</h1>
       <Switch>
         <Route
           exact path="/"
           render={() => (
-            <WritingArea addLog={addLog}/>
+            <WritingArea addLog={addLog} isAuth={isAuth}/>
           )}
         />
         <Route
