@@ -20,3 +20,11 @@
   .strategy-list {
     margin-top: 5vh;
   }
+
+  .strategy-list ul {
+    margin-left: -25px;
+  }
+
+  .error-message {
+    text-align: center;
+  }

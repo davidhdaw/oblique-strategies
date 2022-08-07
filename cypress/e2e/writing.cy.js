@@ -15,6 +15,7 @@ describe('empty spec', () => {
 //the error should ask if you want to fetch again
 
 //should keep track of the word count as you type
+//"He (David Byrne)'s a genuine eccentric," says Eno. "He's always been exactly like that, and I've seen him remain like that in quite extreme situations. For instance, we were mugged together once in New York. It was quite frightening; we were mugged by 14 people. My enduring memory is of David being dragged off into the bushes, saying  'Uh-oh!' That's absolutely true; it was like a cartoon scene." - Brian Eno
 
 //should have a submit button
 

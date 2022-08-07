@@ -1,11 +1,13 @@
 import './SingleEntry.css';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function SingleEntry({id, logEntries}) {
     const correctEntry = logEntries.find(entry => entry.id === id)
     if (!correctEntry) {
         return (
-         <p>Can't find that one partner. Maybe try going back to the homepage</p>
+         <p className='error-message'>Can't find that one partner. Maybe try going<Link to="/" className='link-to-login'>back to the homepage</Link></p>
         )
     } else {
         return (
@@ -29,3 +31,9 @@ function SingleEntry({id, logEntries}) {
   };
 
  export default SingleEntry
+
+ SingleEntry.propTypes = {
+    id: PropTypes.number,
+    logEntries: PropTypes.array
+ }
+
