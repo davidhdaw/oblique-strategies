@@ -1,9 +1,30 @@
-describe('empty spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+describe('Login', () => {
+  beforeEach(() => {
+    cy.visit('/')
   })
-})
+  it("Should contain instructions to log in", () => {
+    cy.get("h3")
+      .should("contain", "Sign In To Continue")
+  });
+  it("Should contain the log in form", () => {
+    cy.get('input')
+    .should('have.length', 2)
+    cy.get('button:first')
+    .should('contain', 'Sign In With E-Mail')
+  });
+  it("Should remove log in after logging in", () => {
+    cy.get('.login').should('exist')
+    cy.get('input:first').type('test2@test.com')
+    cy.get('input[name = password]').type('testtest')
+    cy.get('button:first').click()
+    cy.get('.login').should('not.exist')
+  });
+  it("Should ask to log in again after logging out", () => {
+    cy.get('input:first').type('test2@test.com')
+    cy.get('input[name = password]').type('testtest')
+    cy.get('button:first').click()
+    cy.get('.sign-out').click()
+    cy.get('.login').should('exist')
+  });
 
-//test that it has the sign in p tag
-//test that you can log in
-//test that it doesn't have that anymore
+});
