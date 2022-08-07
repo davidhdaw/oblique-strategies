@@ -7,7 +7,7 @@ function StrategyCard({strategy, timer, error}) {
    if(error) {
       return (
          <div className='card'>
-          <h2 className='strategy'>Whoops, we couldn't pull a strategy.</h2>
+          <h2 className='strategy'>Uh-Oh! We couldn't pull a strategy.</h2>
           <br />
           <h2 className='strategy'>Maybe that's your strategy?</h2>
           <p>(or maybe you should click to try again)</p>

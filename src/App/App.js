@@ -49,11 +49,11 @@ function App() {
   return (
     <div className="App">
       <nav>
-      {isAuth ? <Link to="/writing" className="link-style">Home</Link> : <Link to="/" className="link-style">Home</Link>}
-      <Link to="/about" className="link-style">
+      {isAuth ? <Link to="/writing" className="link-style home-link">Home</Link> : <Link to="/" className="link-style home-link">Home</Link>}
+      <Link to="/about" className="link-style about-link">
         About
       </Link>
-      <Link to="/logs" className="link-style">
+      <Link to="/logs" className="log-nav-link link-style">
         Daily Pages
       </Link>
       {isAuth && <button className='sign-out' onClick={signUserOut}>Sign Out</button>}
