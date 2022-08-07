@@ -4,7 +4,7 @@ import About from '../About/About'
 import Logs from '../Logs/Logs'
 import Login from '../Login/login'
 import SingleEntry from '../SingleEntry/SingleEntry'
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase-config';
@@ -16,6 +16,7 @@ function App() {
 
   const entriesCollectionRef = collection(db, "entries")
   const userEntryQuery = query(collection(db, "entries"), where("authorID", "==", localStorage.userID || 0))
+  const history = useHistory()
 
   const addLog = async (newLog) => {
     await addDoc(entriesCollectionRef, newLog)
@@ -26,6 +27,7 @@ function App() {
     signOut(auth).then(() => {
       localStorage.removeItem('userID')
       setIsAuth(false);
+      history.push('/')
     })
   }
 
@@ -46,11 +48,8 @@ function App() {
 
   return (
     <div className="App">
-      {!isAuth && <Login setIsAuth={setIsAuth} />}
       <nav>
-      <Link to="/" className="link-style">
-        Home
-      </Link>
+      {isAuth ? <Link to="/writing" className="link-style">Home</Link> : <Link to="/" className="link-style">Home</Link>}
       <Link to="/about" className="link-style">
         About
       </Link>
@@ -63,6 +62,12 @@ function App() {
       <Switch>
         <Route
           exact path="/"
+          render={() => (
+            <Login setIsAuth={setIsAuth} isAuth={isAuth} />
+          )}
+        />
+        <Route
+          exact path="/writing"
           render={() => (
             <WritingArea addLog={addLog} isAuth={isAuth}/>
           )}
@@ -78,12 +83,12 @@ function App() {
             path="/logs"
             render={() => (
               <div className='log-area'>
-                <Logs logEntries={logEntries} />
+                <Logs logEntries={logEntries} isAuth={isAuth}/>
               </div>
             )}
           />
         }
-        {!logEntries[0] && 
+        {!logEntries[0] && isAuth && 
           <Route
             path="/logs"
             render={() => (
@@ -91,6 +96,16 @@ function App() {
             )}
           />
         }
+
+        {!isAuth && 
+          <Route
+            path="/logs"
+            render={() => (
+              <p>Please <Link to="/" className='link-to-login'>log in</Link> to see your entries</p>
+            )}
+          />
+        }
+
         <Route 
           exact path="/:id" 
           render={({ match }) => 

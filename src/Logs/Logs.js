@@ -1,9 +1,16 @@
 import './Logs.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
-function Logs({logEntries}) {
+function Logs({logEntries, isAuth}) {
     const newestFirst = logEntries.reverse()
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!isAuth) {history.push('/')}
+    }, [isAuth])
+
     return (
         newestFirst.map((logEntry) => (
             <div className='log' key={logEntry.id}>
@@ -25,3 +32,8 @@ function Logs({logEntries}) {
   };
 
  export default Logs
+
+ Logs.propTypes = {
+    logEntries: PropTypes.array,
+    isAuth: PropTypes.bool
+ }

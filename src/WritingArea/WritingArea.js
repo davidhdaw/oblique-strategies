@@ -4,6 +4,7 @@ import { returnStrategy } from '../apiCalls'
 import StrategyCard from '../StrategyCard/StrategyCard'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../firebase-config'
+import PropTypes from 'prop-types'
 const dayjs = require ('dayjs')
 
 function WritingArea({addLog, isAuth}) {
@@ -14,17 +15,30 @@ function WritingArea({addLog, isAuth}) {
     const [timeoutID, setTimeoutID] = useState(0)
     const [buttonTried, setButtonTried] = useState(false)
     const [mostWords, setmostWords] = useState(0)
+    const [error, setError] = useState(false)
     
     const history = useHistory();
 
+    useEffect(() => {
+        if (!isAuth) {history.push('/')}
+      }, [isAuth])
     
     useEffect(() => {
+        pullCard()
+      }, [])
+
+
+    const pullCard = () => {
         returnStrategy()
         .then((data) => {
+            setError(false)
             setCurrentStrat(data)
             setUsedStrats([...usedStrats, data])
+            setTimer(90)
+        }).catch((err) => {
+            setError(true)
         })
-      }, [])
+    }
 
       useEffect(() => {
         clock()
@@ -46,12 +60,7 @@ function WritingArea({addLog, isAuth}) {
             }, 1000))
         }
         if (timer === 0) {
-            returnStrategy()
-            .then((data) => {
-                setCurrentStrat(data)
-                setUsedStrats([...usedStrats, data])
-                setTimer(90)
-            })
+            pullCard()
         }
     }
 
@@ -83,8 +92,11 @@ function WritingArea({addLog, isAuth}) {
                 value={writing}
                 onChange={(event) => setWriting(event.target.value)}
                  />
-                <StrategyCard strategy={currentStrat} timer={timer} />
+                <div className='clickable-area' onClick={() => pullCard()}>
+                <StrategyCard strategy={currentStrat} timer={timer} error={error} />
+                </div>
             </article>
+            {buttonTried && <h3 className='submit-error'>You haven't met your daily goal yet. Please wait till you've completed your entry to submit it!</h3>}
             {isAuth && 
             <footer>
             <div className='word-count'   style={{
@@ -101,3 +113,8 @@ function WritingArea({addLog, isAuth}) {
   }
   
   export default WritingArea;
+
+  WritingArea.propTypes = {
+    addLog: PropTypes.func,
+    isAuth: PropTypes.bool
+ }
