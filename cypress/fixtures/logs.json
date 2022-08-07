@@ -1,0 +1,840 @@
+{
+    "_firestore": {
+        "app": {
+            "_isDeleted": false,
+            "_options": {
+                "apiKey": "AIzaSyBdWsKS3hPueuIZvh7shUQ-eyLVnHDssPg",
+                "authDomain": "oblique-strategies-editor.firebaseapp.com",
+                "projectId": "oblique-strategies-editor",
+                "storageBucket": "oblique-strategies-editor.appspot.com",
+                "messagingSenderId": "101167565650",
+                "appId": "1:101167565650:web:58ec1d2649856e0986888b"
+            },
+            "_config": {
+                "name": "[DEFAULT]",
+                "automaticDataCollectionEnabled": false
+            },
+            "_name": "[DEFAULT]",
+            "_automaticDataCollectionEnabled": false,
+            "_container": {
+                "name": "[DEFAULT]",
+                "providers": {}
+            }
+        },
+        "databaseId": {
+            "projectId": "oblique-strategies-editor",
+            "database": "(default)"
+        },
+        "settings": {
+            "host": "firestore.googleapis.com",
+            "ssl": true,
+            "ignoreUndefinedProperties": false,
+            "cacheSizeBytes": 41943040,
+            "experimentalForceLongPolling": false,
+            "experimentalAutoDetectLongPolling": false,
+            "useFetchStreams": true
+        }
+    },
+    "_userDataWriter": {
+        "firestore": {
+            "app": {
+                "_isDeleted": false,
+                "_options": {
+                    "apiKey": "AIzaSyBdWsKS3hPueuIZvh7shUQ-eyLVnHDssPg",
+                    "authDomain": "oblique-strategies-editor.firebaseapp.com",
+                    "projectId": "oblique-strategies-editor",
+                    "storageBucket": "oblique-strategies-editor.appspot.com",
+                    "messagingSenderId": "101167565650",
+                    "appId": "1:101167565650:web:58ec1d2649856e0986888b"
+                },
+                "_config": {
+                    "name": "[DEFAULT]",
+                    "automaticDataCollectionEnabled": false
+                },
+                "_name": "[DEFAULT]",
+                "_automaticDataCollectionEnabled": false,
+                "_container": {
+                    "name": "[DEFAULT]",
+                    "providers": {}
+                }
+            },
+            "databaseId": {
+                "projectId": "oblique-strategies-editor",
+                "database": "(default)"
+            },
+            "settings": {
+                "host": "firestore.googleapis.com",
+                "ssl": true,
+                "ignoreUndefinedProperties": false,
+                "cacheSizeBytes": 41943040,
+                "experimentalForceLongPolling": false,
+                "experimentalAutoDetectLongPolling": false,
+                "useFetchStreams": true
+            }
+        }
+    },
+    "_snapshot": {
+        "query": {
+            "path": {
+                "segments": [
+                    "entries"
+                ],
+                "offset": 0,
+                "len": 1
+            },
+            "collectionGroup": null,
+            "explicitOrderBy": [],
+            "filters": [
+                {
+                    "field": {
+                        "segments": [
+                            "authorID"
+                        ],
+                        "offset": 0,
+                        "len": 1
+                    },
+                    "op": "==",
+                    "value": {
+                        "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                    }
+                }
+            ],
+            "limit": null,
+            "limitType": "F",
+            "startAt": null,
+            "endAt": null,
+            "lt": [
+                {
+                    "field": {
+                        "segments": [
+                            "__name__"
+                        ],
+                        "offset": 0,
+                        "len": 1
+                    },
+                    "dir": "asc"
+                }
+            ],
+            "ft": {
+                "path": {
+                    "segments": [
+                        "entries"
+                    ],
+                    "offset": 0,
+                    "len": 1
+                },
+                "collectionGroup": null,
+                "orderBy": [
+                    {
+                        "field": {
+                            "segments": [
+                                "__name__"
+                            ],
+                            "offset": 0,
+                            "len": 1
+                        },
+                        "dir": "asc"
+                    }
+                ],
+                "filters": [
+                    {
+                        "field": {
+                            "segments": [
+                                "authorID"
+                            ],
+                            "offset": 0,
+                            "len": 1
+                        },
+                        "op": "==",
+                        "value": {
+                            "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                        }
+                    }
+                ],
+                "limit": null,
+                "startAt": null,
+                "endAt": null,
+                "ut": "entries|f:authorID==sPExGDAVTtQXwyVxOCBWDQbCMUw1|ob:__name__asc"
+            }
+        },
+        "docs": {
+            "keyedMap": {
+                "root": {
+                    "key": {
+                        "path": {
+                            "segments": [
+                                "projects",
+                                "oblique-strategies-editor",
+                                "databases",
+                                "(default)",
+                                "documents",
+                                "entries",
+                                "hEdXMe15avWt53m1KOyg"
+                            ],
+                            "offset": 5,
+                            "len": 2
+                        }
+                    },
+                    "value": {
+                        "key": {
+                            "path": {
+                                "segments": [
+                                    "projects",
+                                    "oblique-strategies-editor",
+                                    "databases",
+                                    "(default)",
+                                    "documents",
+                                    "entries",
+                                    "hEdXMe15avWt53m1KOyg"
+                                ],
+                                "offset": 5,
+                                "len": 2
+                            }
+                        },
+                        "documentType": 1,
+                        "version": {
+                            "timestamp": {
+                                "seconds": 1659734090,
+                                "nanoseconds": 44983000
+                            }
+                        },
+                        "readTime": {
+                            "timestamp": {
+                                "seconds": 1659807471,
+                                "nanoseconds": 971027000
+                            }
+                        },
+                        "data": {
+                            "value": {
+                                "mapValue": {
+                                    "fields": {
+                                        "authorName": {
+                                            "stringValue": "David Daw"
+                                        },
+                                        "time": {
+                                            "stringValue": "14:14:49"
+                                        },
+                                        "id": {
+                                            "integerValue": "1659734089626"
+                                        },
+                                        "date": {
+                                            "stringValue": "08/05/2022"
+                                        },
+                                        "usedStrats": {
+                                            "arrayValue": {
+                                                "values": [
+                                                    {
+                                                        "mapValue": {
+                                                            "fields": {
+                                                                "strategy": {
+                                                                    "stringValue": "Give way to your worst impulse"
+                                                                },
+                                                                "id": {
+                                                                    "integerValue": "49"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "authorID": {
+                                            "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                        },
+                                        "writing": {
+                                            "stringValue": "You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "documentState": 0
+                    },
+                    "color": false,
+                    "left": {
+                        "key": {
+                            "path": {
+                                "segments": [
+                                    "projects",
+                                    "oblique-strategies-editor",
+                                    "databases",
+                                    "(default)",
+                                    "documents",
+                                    "entries",
+                                    "aHDlXTDqQ1sgnrw6BIam"
+                                ],
+                                "offset": 5,
+                                "len": 2
+                            }
+                        },
+                        "value": {
+                            "key": {
+                                "path": {
+                                    "segments": [
+                                        "projects",
+                                        "oblique-strategies-editor",
+                                        "databases",
+                                        "(default)",
+                                        "documents",
+                                        "entries",
+                                        "aHDlXTDqQ1sgnrw6BIam"
+                                    ],
+                                    "offset": 5,
+                                    "len": 2
+                                }
+                            },
+                            "documentType": 1,
+                            "version": {
+                                "timestamp": {
+                                    "seconds": 1659751566,
+                                    "nanoseconds": 999764000
+                                }
+                            },
+                            "readTime": {
+                                "timestamp": {
+                                    "seconds": 1659807471,
+                                    "nanoseconds": 971027000
+                                }
+                            },
+                            "data": {
+                                "value": {
+                                    "mapValue": {
+                                        "fields": {
+                                            "authorID": {
+                                                "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                            },
+                                            "date": {
+                                                "stringValue": "08/05/2022"
+                                            },
+                                            "id": {
+                                                "integerValue": "1659751566440"
+                                            },
+                                            "time": {
+                                                "stringValue": "19:06:06"
+                                            },
+                                            "authorName": {
+                                                "stringValue": "David Daw"
+                                            },
+                                            "usedStrats": {
+                                                "arrayValue": {
+                                                    "values": [
+                                                        {
+                                                            "mapValue": {
+                                                                "fields": {
+                                                                    "strategy": {
+                                                                        "stringValue": "Ask people to work against their better judgement"
+                                                                    },
+                                                                    "id": {
+                                                                        "integerValue": "6"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "writing": {
+                                                "stringValue": "Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working."
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "documentState": 0
+                        },
+                        "color": true,
+                        "left": {
+                            "size": 0
+                        },
+                        "right": {
+                            "size": 0
+                        },
+                        "size": 1
+                    },
+                    "right": {
+                        "size": 0
+                    },
+                    "size": 2
+                }
+            },
+            "sortedSet": {
+                "root": {
+                    "key": {
+                        "key": {
+                            "path": {
+                                "segments": [
+                                    "projects",
+                                    "oblique-strategies-editor",
+                                    "databases",
+                                    "(default)",
+                                    "documents",
+                                    "entries",
+                                    "hEdXMe15avWt53m1KOyg"
+                                ],
+                                "offset": 5,
+                                "len": 2
+                            }
+                        },
+                        "documentType": 1,
+                        "version": {
+                            "timestamp": {
+                                "seconds": 1659734090,
+                                "nanoseconds": 44983000
+                            }
+                        },
+                        "readTime": {
+                            "timestamp": {
+                                "seconds": 1659807471,
+                                "nanoseconds": 971027000
+                            }
+                        },
+                        "data": {
+                            "value": {
+                                "mapValue": {
+                                    "fields": {
+                                        "authorName": {
+                                            "stringValue": "David Daw"
+                                        },
+                                        "time": {
+                                            "stringValue": "14:14:49"
+                                        },
+                                        "id": {
+                                            "integerValue": "1659734089626"
+                                        },
+                                        "date": {
+                                            "stringValue": "08/05/2022"
+                                        },
+                                        "usedStrats": {
+                                            "arrayValue": {
+                                                "values": [
+                                                    {
+                                                        "mapValue": {
+                                                            "fields": {
+                                                                "strategy": {
+                                                                    "stringValue": "Give way to your worst impulse"
+                                                                },
+                                                                "id": {
+                                                                    "integerValue": "49"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "authorID": {
+                                            "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                        },
+                                        "writing": {
+                                            "stringValue": "You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "documentState": 0
+                    },
+                    "value": null,
+                    "color": false,
+                    "left": {
+                        "key": {
+                            "key": {
+                                "path": {
+                                    "segments": [
+                                        "projects",
+                                        "oblique-strategies-editor",
+                                        "databases",
+                                        "(default)",
+                                        "documents",
+                                        "entries",
+                                        "aHDlXTDqQ1sgnrw6BIam"
+                                    ],
+                                    "offset": 5,
+                                    "len": 2
+                                }
+                            },
+                            "documentType": 1,
+                            "version": {
+                                "timestamp": {
+                                    "seconds": 1659751566,
+                                    "nanoseconds": 999764000
+                                }
+                            },
+                            "readTime": {
+                                "timestamp": {
+                                    "seconds": 1659807471,
+                                    "nanoseconds": 971027000
+                                }
+                            },
+                            "data": {
+                                "value": {
+                                    "mapValue": {
+                                        "fields": {
+                                            "authorID": {
+                                                "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                            },
+                                            "date": {
+                                                "stringValue": "08/05/2022"
+                                            },
+                                            "id": {
+                                                "integerValue": "1659751566440"
+                                            },
+                                            "time": {
+                                                "stringValue": "19:06:06"
+                                            },
+                                            "authorName": {
+                                                "stringValue": "David Daw"
+                                            },
+                                            "usedStrats": {
+                                                "arrayValue": {
+                                                    "values": [
+                                                        {
+                                                            "mapValue": {
+                                                                "fields": {
+                                                                    "strategy": {
+                                                                        "stringValue": "Ask people to work against their better judgement"
+                                                                    },
+                                                                    "id": {
+                                                                        "integerValue": "6"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "writing": {
+                                                "stringValue": "Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working."
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "documentState": 0
+                        },
+                        "value": null,
+                        "color": true,
+                        "left": {
+                            "size": 0
+                        },
+                        "right": {
+                            "size": 0
+                        },
+                        "size": 1
+                    },
+                    "right": {
+                        "size": 0
+                    },
+                    "size": 2
+                }
+            }
+        },
+        "oldDocs": {
+            "keyedMap": {
+                "root": {
+                    "size": 0
+                }
+            },
+            "sortedSet": {
+                "root": {
+                    "size": 0
+                }
+            }
+        },
+        "docChanges": [
+            {
+                "type": 0,
+                "doc": {
+                    "key": {
+                        "path": {
+                            "segments": [
+                                "projects",
+                                "oblique-strategies-editor",
+                                "databases",
+                                "(default)",
+                                "documents",
+                                "entries",
+                                "aHDlXTDqQ1sgnrw6BIam"
+                            ],
+                            "offset": 5,
+                            "len": 2
+                        }
+                    },
+                    "documentType": 1,
+                    "version": {
+                        "timestamp": {
+                            "seconds": 1659751566,
+                            "nanoseconds": 999764000
+                        }
+                    },
+                    "readTime": {
+                        "timestamp": {
+                            "seconds": 1659807471,
+                            "nanoseconds": 971027000
+                        }
+                    },
+                    "data": {
+                        "value": {
+                            "mapValue": {
+                                "fields": {
+                                    "authorID": {
+                                        "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                    },
+                                    "date": {
+                                        "stringValue": "08/05/2022"
+                                    },
+                                    "id": {
+                                        "integerValue": "1659751566440"
+                                    },
+                                    "time": {
+                                        "stringValue": "19:06:06"
+                                    },
+                                    "authorName": {
+                                        "stringValue": "David Daw"
+                                    },
+                                    "usedStrats": {
+                                        "arrayValue": {
+                                            "values": [
+                                                {
+                                                    "mapValue": {
+                                                        "fields": {
+                                                            "strategy": {
+                                                                "stringValue": "Ask people to work against their better judgement"
+                                                            },
+                                                            "id": {
+                                                                "integerValue": "6"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "writing": {
+                                        "stringValue": "Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working. Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working.Okay and now I'm going to do a second test post just to prove that this is still working."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "documentState": 0
+                }
+            },
+            {
+                "type": 0,
+                "doc": {
+                    "key": {
+                        "path": {
+                            "segments": [
+                                "projects",
+                                "oblique-strategies-editor",
+                                "databases",
+                                "(default)",
+                                "documents",
+                                "entries",
+                                "hEdXMe15avWt53m1KOyg"
+                            ],
+                            "offset": 5,
+                            "len": 2
+                        }
+                    },
+                    "documentType": 1,
+                    "version": {
+                        "timestamp": {
+                            "seconds": 1659734090,
+                            "nanoseconds": 44983000
+                        }
+                    },
+                    "readTime": {
+                        "timestamp": {
+                            "seconds": 1659807471,
+                            "nanoseconds": 971027000
+                        }
+                    },
+                    "data": {
+                        "value": {
+                            "mapValue": {
+                                "fields": {
+                                    "authorName": {
+                                        "stringValue": "David Daw"
+                                    },
+                                    "time": {
+                                        "stringValue": "14:14:49"
+                                    },
+                                    "id": {
+                                        "integerValue": "1659734089626"
+                                    },
+                                    "date": {
+                                        "stringValue": "08/05/2022"
+                                    },
+                                    "usedStrats": {
+                                        "arrayValue": {
+                                            "values": [
+                                                {
+                                                    "mapValue": {
+                                                        "fields": {
+                                                            "strategy": {
+                                                                "stringValue": "Give way to your worst impulse"
+                                                            },
+                                                            "id": {
+                                                                "integerValue": "49"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "authorID": {
+                                        "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                                    },
+                                    "writing": {
+                                        "stringValue": "You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes. You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes.You know what I'm not going to fuck myself by having that be the thing I'm doing for testing purposes."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "documentState": 0
+                }
+            }
+        ],
+        "mutatedKeys": {
+            "data": {
+                "root": {
+                    "size": 0
+                }
+            }
+        },
+        "fromCache": false,
+        "syncStateChanged": true,
+        "excludesMetadataChanges": false
+    },
+    "metadata": {
+        "hasPendingWrites": false,
+        "fromCache": false
+    },
+    "query": {
+        "converter": null,
+        "_query": {
+            "path": {
+                "segments": [
+                    "entries"
+                ],
+                "offset": 0,
+                "len": 1
+            },
+            "collectionGroup": null,
+            "explicitOrderBy": [],
+            "filters": [
+                {
+                    "field": {
+                        "segments": [
+                            "authorID"
+                        ],
+                        "offset": 0,
+                        "len": 1
+                    },
+                    "op": "==",
+                    "value": {
+                        "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                    }
+                }
+            ],
+            "limit": null,
+            "limitType": "F",
+            "startAt": null,
+            "endAt": null,
+            "lt": [
+                {
+                    "field": {
+                        "segments": [
+                            "__name__"
+                        ],
+                        "offset": 0,
+                        "len": 1
+                    },
+                    "dir": "asc"
+                }
+            ],
+            "ft": {
+                "path": {
+                    "segments": [
+                        "entries"
+                    ],
+                    "offset": 0,
+                    "len": 1
+                },
+                "collectionGroup": null,
+                "orderBy": [
+                    {
+                        "field": {
+                            "segments": [
+                                "__name__"
+                            ],
+                            "offset": 0,
+                            "len": 1
+                        },
+                        "dir": "asc"
+                    }
+                ],
+                "filters": [
+                    {
+                        "field": {
+                            "segments": [
+                                "authorID"
+                            ],
+                            "offset": 0,
+                            "len": 1
+                        },
+                        "op": "==",
+                        "value": {
+                            "stringValue": "sPExGDAVTtQXwyVxOCBWDQbCMUw1"
+                        }
+                    }
+                ],
+                "limit": null,
+                "startAt": null,
+                "endAt": null,
+                "ut": "entries|f:authorID==sPExGDAVTtQXwyVxOCBWDQbCMUw1|ob:__name__asc"
+            }
+        },
+        "type": "query",
+        "firestore": {
+            "app": {
+                "_isDeleted": false,
+                "_options": {
+                    "apiKey": "AIzaSyBdWsKS3hPueuIZvh7shUQ-eyLVnHDssPg",
+                    "authDomain": "oblique-strategies-editor.firebaseapp.com",
+                    "projectId": "oblique-strategies-editor",
+                    "storageBucket": "oblique-strategies-editor.appspot.com",
+                    "messagingSenderId": "101167565650",
+                    "appId": "1:101167565650:web:58ec1d2649856e0986888b"
+                },
+                "_config": {
+                    "name": "[DEFAULT]",
+                    "automaticDataCollectionEnabled": false
+                },
+                "_name": "[DEFAULT]",
+                "_automaticDataCollectionEnabled": false,
+                "_container": {
+                    "name": "[DEFAULT]",
+                    "providers": {}
+                }
+            },
+            "databaseId": {
+                "projectId": "oblique-strategies-editor",
+                "database": "(default)"
+            },
+            "settings": {
+                "host": "firestore.googleapis.com",
+                "ssl": true,
+                "ignoreUndefinedProperties": false,
+                "cacheSizeBytes": 41943040,
+                "experimentalForceLongPolling": false,
+                "experimentalAutoDetectLongPolling": false,
+                "useFetchStreams": true
+            }
+        }
+    }
+}

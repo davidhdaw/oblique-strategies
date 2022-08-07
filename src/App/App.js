@@ -29,13 +29,16 @@ function App() {
     })
   }
 
+
   useEffect(() => {
     if (localStorage.userID) {
       setIsAuth(true)
     }
     const getEntries = async () => {
+      if (isAuth) {
       const data = await getDocs(userEntryQuery)
       setLogEntries(data.docs.map((doc) => ({...doc.data()})))
+      }
     }
     getEntries()
   }, [isAuth])
