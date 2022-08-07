@@ -1,9 +1,6 @@
 describe('About Page', () => {
   beforeEach(() => {
     cy.visit('/about')
-    cy.get('input:first').type('test2@test.com')
-    cy.get('input[name = password]').type('testtest')
-    cy.get('button:first').click()
   })
   it("Should contain the site header", () => {
     cy.get("h1")

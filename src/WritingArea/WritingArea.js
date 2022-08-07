@@ -31,6 +31,7 @@ function WritingArea({addLog, isAuth}) {
     const pullCard = () => {
         returnStrategy()
         .then((data) => {
+            console.log(data)
             setError(false)
             setCurrentStrat(data)
             setUsedStrats([...usedStrats, data])
