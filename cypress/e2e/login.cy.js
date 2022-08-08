@@ -14,7 +14,7 @@ describe('Login', () => {
   });
   it("Should show a message for a failed log in", () => {
     cy.get('.login').should('exist')
-    cy.get('input:first').type('jimothytestington@test.com')
+    cy.get('input:first').type('jimbothytesterton@test.com')
     cy.get('input[name = password]').type('testtest.TEST?')
     cy.get('button:first').click()
     cy.get('.login').should('contain', 'Failed to Log In.')

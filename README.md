@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Oblique Strategies
+#### A Turing Mod 3 Final Project from [David Daw](https://github.com/davidhdaw) using React and Firebase!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ Oblique Strategies is a lightweight daily writing tool utilizing the prompts and principles of both the Oblique Strategies deck created by Brian Eno and the practice of Morning Pages from Julia Cameron's book the artists way. The goal is to create a place to focus on writing as a practice rather than a matter of output by focusing the user on daily writing goals and de-emphasizing the actual output of their writing.
 
-## Available Scripts
+### How to access the application:
+#### Go to this [link](https://oblique-strategies-eight.vercel.app/) where the application is deployed on Vercel
 
-In the project directory, you can run:
+#### Or if you prefer to access the code as well as the application follow these *installation instructions*
 
-### `npm start`
+- Clone down this repository into your local machine
+- `cd` into the root directory of the repo
+- Run `npm i` in your console to install the dependencies
+- Run `npm start` in the console to start the sever and access the application from your browser
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Usage 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once you've logged in to Oblique Strategies you'll be taken to the minimalist text editor for writing your daily log with minimal distraction. The prompts on the right side of the editor, taken from Brian Eno's Oblique Strategies decks, should be considered more suggestions than anything. A way to unstuck yourself if you are lacking in inspiration. Once you've met your daily word count goal you can submit your new entry and you'll be taken to a log of all your writing.
 
-### `npm test`
+#### Testing Instructions
+In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### See it in action 
 
-### `npm run build`
+Logging in  
+![Logging In!](/src/assets/Oblique1.gif "log in")  
+Using the editor  
+![Using the editor!](/src/assets/Oblique2.gif "editor demo")  
+Seeing your earlier posts  
+![Reviewing submitted writing!](/src/assets/Oblique2.gif "log entries")  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Technologies used:
+- React
+- HTML5 
+- CSS3
+- React Router
+- Firebase
+- Local Storage
+- Proxy API server deployed on Heroku
+- Fetch API
+- Cypress E2E testing
+- [Figma](https://www.figma.com/file/bFiSE85TYfKcbzoQ9GgctR/Morning-Pges---Oblique-Strategies?node-id=2%3A5)
+- [Trello project boards](https://trello.com/b/PG5advSu/oblique-strategies)
+- Vercel deployment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### David Daw Reflection:
+While I obviously still have plenty of learning to do with React this project really let me explore what I could do with the Library. Since I was working with a preexisting design by Nicole Thayer I was able to quickly reach MVP and use the rest of my time exploring stretch techs like Firebase. I was surprised how easy it was to set up firebase allowing me to set up complex features like remote authorization and saving entries to a back-end server within just a few hours. I plan to add even more functionality for Oblique Strategies through Firebase soon. This project was, however initially conceived as a front-end mod 3 final project at the [Turing School of Software and Design](https://frontend.turing.edu/) and migrating completely to Firebase would have conflicted with many learning goals around Cypress testing and reading from an external API with React.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##### Planned Future Features
+1. Media calls for mobile use.
+2. Additional styling on some elements such as login.
+3. Pull strategies from firebase rather than from an external api.
+3. Settings page with various functionality.
+* Alternate 'darkmode' colorscheme.
+* Ability to show/hide timer until next strategy is shown.
+* Ability to customize the amount of time between strategies.
+* A setting to turn off the ability to draw a new strategy by clicking on the current card.
+* A setting to customize the amount of words in your daily entry.
+* Alternate setting to have your goal be time spent writing rather than a word count.
+* Customization options for the log of your daily pages.
