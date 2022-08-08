@@ -23,3 +23,19 @@
 .login-form button {
     margin-bottom: 3vh;
 }
+
+.login-swap {
+    text-transform: uppercase;
+    border: none;
+    padding: 0;
+}
+  
+  .login-swap:hover {
+    border: none;
+    color: var(--text-border);
+    background-color: #6F9E9E;
+    text-decoration: underline;
+    padding: 0;
+    text-transform: uppercase;
+    cursor:pointer
+  }
