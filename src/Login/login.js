@@ -14,6 +14,7 @@ function Login({setIsAuth, isAuth}) {
     const [registering, setRegistering] = useState(false)
     const history = useHistory();
     const [registerError, setRegisterError] = useState(false)
+    const [fieldError, setFieldError] = useState(false)
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
@@ -31,19 +32,30 @@ function Login({setIsAuth, isAuth}) {
     }
 
     const signUpNewUser = () => {
-        createUserWithEmailAndPassword(auth, email, password).then((userInfo) => {
-          if (userInfo != null){
-            localStorage.setItem('userID', userInfo.user.uid)
-            setIsAuth(true)
-            setRegisterError(false)
-          }
-          }).catch((err) => {
-            console.log(err)
-            setRegisterError(true)
-          })
+        const emailCheck = (email.includes('@') && email.includes('.') && !email.includes(' '))
+        const passwordCheck = (!password.includes(' ') && password.length >= 8)
+        if (password === '' || email === '' || !emailCheck || !passwordCheck)   {
+            setFieldError(true)
+        } else {
+            createUserWithEmailAndPassword(auth, email, password).then((userInfo) => {
+            if (userInfo != null){
+                localStorage.setItem('userID', userInfo.user.uid)
+                setIsAuth(true)
+                setRegisterError(false)
+            }
+            }).catch((err) => {
+                console.log(err)
+                setRegisterError(true)
+            })
+        }
     }
 
     const signinwithEmail = () => {
+        const emailCheck = (email.includes('@') && email.includes('.') && !email.includes(' '))
+        const passwordCheck = (!password.includes(' ') && password.length >= 8)
+        if (password === '' || email === '' || !emailCheck || !passwordCheck)   {
+            setFieldError(true)
+        } else {
         signInWithEmailAndPassword(auth, email, password).then((result) => {
             localStorage.setItem('userID', result.user.uid)
             setIsAuth(true)
@@ -51,7 +63,7 @@ function Login({setIsAuth, isAuth}) {
             setPassword('')
             setError(true)
         })
-        
+    }
     }
 
     useEffect(() => {
@@ -61,16 +73,8 @@ function Login({setIsAuth, isAuth}) {
     return(
         <div className='login' >
             <div className='login-form card'>
-                {registering ? <h3>Register A New User</h3> : <h3>Sign In To Continue</h3>}
-                <input name='email' placeholder='email' value={email} onChange={e => setEmail(e.target.value)} required />
-                <input name='password' placeholder='password' value={password} onChange={e => setPassword(e.target.value)} required />
-                {registering ?
-                    <button className="register-btn" onClick={e => signUpNewUser()}>Register New User</button> :
-                    <button className="login-btn" onClick={e => signinwithEmail()}>Sign In With E-Mail</button>
-                }
                 <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign In With Google</button>
                 {registerError && <h3 className='login-swap'>Registration failed. Please try again.</h3>}
-                {error ? (<h3>Failed to Log In. Please try again or <span className='login-swap'>register</span>.</h3>): registering ? <h3 className='login-swap' onClick={() => toggleRegister()}>Already Registered?</h3> : <h3 className='login-swap' onClick={() => toggleRegister()}>Register new user?</h3>}
             </div>
             
             
