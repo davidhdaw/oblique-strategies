@@ -29,15 +29,11 @@ function WritingArea({addLog, isAuth}) {
 
 
     const pullCard = () => {
-        returnStrategy()
-        .then((data) => {
+        const card = returnStrategy()
             setError(false)
-            setCurrentStrat(data)
-            setUsedStrats([...usedStrats, data])
+            setCurrentStrat(card)
+            setUsedStrats([...usedStrats, card])
             setTimer(90)
-        }).catch((err) => {
-            setError(true)
-        })
     }
 
       useEffect(() => {
