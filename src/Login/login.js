@@ -24,7 +24,7 @@ function Login({setIsAuth, isAuth}) {
             setError(true)
         })
     }
-
+/*
     const toggleRegister = () => {
         setRegistering(!registering)
         setEmail('')
@@ -64,14 +64,17 @@ function Login({setIsAuth, isAuth}) {
             setError(true)
         })
     }
-    }
-
+    }1
+*/
     useEffect(() => {
         if(isAuth) {history.push('/writing')}
     }, [isAuth])
 
     return(
         <div className='login' >
+            <p className='about-text'>
+            Oblique Strategies is a lightweight daily writing tool utilizing the prompts and principles of both the Oblique Strategies deck created by Brian Eno and the practice of Morning Pages from Julia Cameron's book the artists way. The goal is to create a place to focus on writing as a practice rather than a matter of output by focusing the user on daily writing goals and de-emphasizing the actual output of their writing.   
+            </p>
             <div className='login-form card'>
                 <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign In With Google</button>
                 {registerError && <h3 className='login-swap'>Registration failed. Please try again.</h3>}
