@@ -118,5 +118,5 @@ footer {
   width: 100vw;
   border-top: 3px solid var(--text-border);
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }

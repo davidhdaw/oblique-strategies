@@ -1,10 +1,13 @@
+import '@remirror/styles/all.css'
 import './WritingArea.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { returnStrategy } from '../apiCalls'
 import StrategyCard from '../StrategyCard/StrategyCard'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../firebase-config'
 import PropTypes from 'prop-types'
+import { MarkdownEditor } from '@remirror/react-editors/markdown'
+import { MarkdownToolbar } from '@remirror/react-ui'
 const dayjs = require ('dayjs')
 
 function WritingArea({addLog, isAuth}) {
@@ -12,57 +15,59 @@ function WritingArea({addLog, isAuth}) {
     const [usedStrats, setUsedStrats] = useState([])
     const [writing, setWriting] = useState('')
     const [timer, setTimer] = useState(90)
-    const [timeoutID, setTimeoutID] = useState(0)
     const [buttonTried, setButtonTried] = useState(false)
     const [mostWords, setmostWords] = useState(0)
     const [error, setError] = useState(false)
+    const hasPulledInitialCard = useRef(false)
     
     const history = useHistory();
+    const wordCount = getWordCount(writing)
 
     useEffect(() => {
         if (!isAuth) {history.push('/')}
-      }, [isAuth])
-    
-    useEffect(() => {
-        pullCard()
-      }, [])
+      }, [history, isAuth])
 
-
-    const pullCard = () => {
+      const pullCard = useCallback(() => {
         const card = returnStrategy()
             setError(false)
             setCurrentStrat(card)
-            setUsedStrats([...usedStrats, card])
+            setUsedStrats((prevUsedStrats) => [...prevUsedStrats, card])
             setTimer(90)
-    }
+    }, [])
+      useEffect(() => {
+        if (hasPulledInitialCard.current) {
+            return
+        }
+
+        hasPulledInitialCard.current = true
+        pullCard()
+      }, [pullCard])
 
       useEffect(() => {
-        clock()
-      }, [timer])
+        if (timer === 0) {
+            pullCard()
+            return
+        }
+
+        const timeoutId = setTimeout(() => {
+            setTimer((prevTimer) => prevTimer - 1)
+        }, 1000)
+
+        return () => clearTimeout(timeoutId)
+      }, [timer, pullCard])
 
       useEffect(() => {
         setButtonTried(false)
-        if ((writing.split(' ').length - 1) > mostWords) {
-            setmostWords(writing.split(' ').length - 1)
+        if (wordCount > mostWords) {
+            setmostWords(wordCount)
             setTimer(90)
         }
-      }, [writing])
+    }, [writing, wordCount, mostWords])
     
-    const clock = () =>{
-        clearTimeout(timeoutID)
-        if (timer > 0) {
-            setTimeoutID(setTimeout(() => {
-                setTimer(timer-1)
-            }, 1000))
-        }
-        if (timer === 0) {
-            pullCard()
-        }
-    }
 
     const submitWriting = () => {
         console.log(auth.currentUser.uid)
-       if (writing.split(' ').length > 750) {
+       if (wordCount > 750) {
             setButtonTried(false)
             const newLog = {
                 id: Date.now(),
@@ -84,23 +89,40 @@ function WritingArea({addLog, isAuth}) {
     return (
         <>
             <article className='writing-area'>
-                <textarea
-                value={writing}
-                onChange={(event) => setWriting(event.target.value)}
-                 />
+                <div style={{
+                  width: '40vw',
+                  minWidth: 480,
+                  height: '50vh',
+                  backgroundColor: 'var(--background)',
+                  color: 'var(--text-border)',
+                  border: '3px solid var(--text-border)',
+                  padding: 28,
+                  fontSize: 18,
+                  marginRight: '3vw',
+                  boxSizing: 'border-box',
+                  overflowY: 'auto',
+                }}>
+                   <MarkdownEditor 
+                     initialContent={writing}
+                     onChange={({ helpers }) => setWriting(helpers.getMarkdown())}
+                     placeholder="Start typing..." 
+                     toolbar={<MarkdownToolbar />}
+                     style={{ height: '100%' }}
+                   />
+                </div>
                 <div className='clickable-area' onClick={() => pullCard()}>
                 <StrategyCard strategy={currentStrat} timer={timer} error={error} />
                 </div>
             </article>
             {buttonTried && <h3 className='submit-error'>You haven't met your daily goal yet. Please wait till you've completed your entry to submit it!</h3>}
-            {isAuth && 
+            {isAuth &&
             <footer>
             <div className='word-count'   style={{
-            backgroundColor: buttonTried ? 'red' : ((writing.split(' ').length > 750) ? '#6F9E9E' : ''),
+            backgroundColor: buttonTried ? 'red' : ((wordCount > 750) ? '#6F9E9E' : ''),
             }}>
-                {writing.split(' ').length - 1}/750
+                {wordCount}/750
             </div>
-            <a className='submit-button' onClick={() => submitWriting()}>Submit</a>
+            <button className='submit-button' onClick={() => submitWriting()}>Submit</button>
             </footer>
             }
             
@@ -109,6 +131,23 @@ function WritingArea({addLog, isAuth}) {
   }
   
   export default WritingArea;
+
+  const getWordCount = (text) => {
+    const cleanedText = text
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/`[^`]*`/g, ' ')
+      .replace(/!\[[^\]]*]\([^)]*\)/g, ' ')
+      .replace(/\[[^\]]*]\([^)]*\)/g, ' ')
+      .replace(/[#>*_~-]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    if (!cleanedText) {
+      return 0
+    }
+
+    return cleanedText.split(' ').length
+  }
 
   WritingArea.propTypes = {
     addLog: PropTypes.func,

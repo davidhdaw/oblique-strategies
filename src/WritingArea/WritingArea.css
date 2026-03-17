@@ -2,3 +2,48 @@
     margin-top: 4vh;
     text-align: center;
 }
+
+/* Remove border from Remirror MarkdownEditor */
+.remirror-editor-wrapper {
+    border: none !important;
+    outline: none !important;
+}
+
+.remirror-theme .remirror-editor-wrapper {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Remove border from the actual editable Remirror element */
+.ProseMirror,
+.remirror-editor,
+.remirror-a11y-dark {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.remirror-toolbar {
+    background: var(--background) !important;
+}
+
+.writing-area .MuiStack-root {
+  background: var(--background) !important;
+}
+
+/* MarkdownToolbar is rendered with MUI ToggleButton/IconButton components */
+.writing-area .MuiToggleButton-root,
+.writing-area .MuiIconButton-root {
+  background-color: #fbf5e8 !important;
+}
+
+.writing-area .MuiToggleButton-root:hover,
+.writing-area .MuiIconButton-root:hover {
+  background-color: #f6eede !important;
+}
+
+.writing-area .MuiToggleButton-root.Mui-selected,
+.writing-area .MuiToggleButton-root.Mui-selected:hover {
+  background-color: #efe5d6 !important;
+  color: var(--text-border) !important;
+}

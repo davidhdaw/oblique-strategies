@@ -28,3 +28,7 @@
   .error-message {
     text-align: center;
   }
+.entry-markdown {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

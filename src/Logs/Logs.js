@@ -2,6 +2,7 @@ import './Logs.css';
 import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown';
 
 function Logs({logEntries, isAuth}) {
     const newestFirst = logEntries.reverse()
@@ -9,7 +10,7 @@ function Logs({logEntries, isAuth}) {
 
     useEffect(() => {
         if (!isAuth) {history.push('/')}
-    }, [isAuth])
+    }, [isAuth, history])
 
     return (
         newestFirst.map((logEntry) => (
@@ -18,7 +19,11 @@ function Logs({logEntries, isAuth}) {
                 <h2>{logEntry.date} {logEntry.time}</h2>
                 </Link>
                 <h3>First Line:</h3>
-                <p>"{logEntry.writing.split('').slice(0, 50).join('')}..."</p>
+                <div className='log-preview'>
+                    <ReactMarkdown>
+                        {getPreview(logEntry.writing)}
+                    </ReactMarkdown>
+                </div>
                 <h3>Strategies:</h3>
                 <ul>
                     {logEntry.usedStrats.map(usedStrat => (
@@ -32,6 +37,15 @@ function Logs({logEntries, isAuth}) {
   };
 
  export default Logs
+
+ const getPreview = (markdownText) => {
+    if (!markdownText) {
+        return ''
+    }
+
+    const firstLine = markdownText.split('\n').find((line) => line.trim().length > 0) || ''
+    return `${firstLine.slice(0, 80)}${firstLine.length > 80 ? '…' : ''}`
+ }
 
  Logs.propTypes = {
     logEntries: PropTypes.array,

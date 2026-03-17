@@ -2,6 +2,7 @@ import './SingleEntry.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 function SingleEntry({id, logEntries}) {
     const correctEntry = logEntries.find(entry => entry.id === id)
@@ -15,7 +16,9 @@ function SingleEntry({id, logEntries}) {
                 <div className='writing-info'>
                     <h2>{correctEntry.date}</h2>
                     <h3>Entry:</h3>
-                    <p>{correctEntry.writing}</p>
+                    <div className='entry-markdown'>
+                        <ReactMarkdown>{correctEntry.writing}</ReactMarkdown>
+                    </div>
                 </div>
                 <div className='card strategy-list'>
                     <h4>Strategies:</h4>

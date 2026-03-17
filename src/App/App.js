@@ -15,7 +15,6 @@ function App() {
   const [isAuth, setIsAuth] = useState(false)
 
   const entriesCollectionRef = collection(db, "entries")
-  const userEntryQuery = query(collection(db, "entries"), where("authorID", "==", localStorage.userID || 0))
   const history = useHistory()
 
   const addLog = async (newLog) => {
@@ -38,6 +37,7 @@ function App() {
     }
     const getEntries = async () => {
       if (isAuth) {
+      const userEntryQuery = query(collection(db, "entries"), where("authorID", "==", localStorage.userID || 0))
       const data = await getDocs(userEntryQuery)
       setLogEntries(data.docs.map((doc) => ({...doc.data()})))
       }
