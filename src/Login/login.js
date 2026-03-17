@@ -1,27 +1,21 @@
 import './login.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { auth, provider} from '../firebase-config'
 import PropTypes from 'prop-types'
-import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, FirebaseUser } from 'firebase/auth'
+import { signInWithPopup } from 'firebase/auth'
 import { useHistory } from 'react-router-dom'
 
 
 function Login({setIsAuth, isAuth}) {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState(false)
-    const [registering, setRegistering] = useState(false)
     const history = useHistory();
-    const [registerError, setRegisterError] = useState(false)
-    const [fieldError, setFieldError] = useState(false)
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             localStorage.setItem('userID', result.user.uid)
             setIsAuth(true)
-        }).catch((err) => {
-            setError(true)
+        }).catch(() => {
+            // Handle error silently or add error handling if needed
         })
     }
 /*
@@ -68,7 +62,7 @@ function Login({setIsAuth, isAuth}) {
 */
     useEffect(() => {
         if(isAuth) {history.push('/writing')}
-    }, [isAuth])
+    }, [isAuth, history])
 
     return(
         <div className='login' >
@@ -77,7 +71,6 @@ function Login({setIsAuth, isAuth}) {
             </p>
             <div className='login-form card'>
                 <button className="login-with-google-btn" onClick={signInWithGoogle}>Sign In With Google</button>
-                {registerError && <h3 className='login-swap'>Registration failed. Please try again.</h3>}
             </div>
             
             

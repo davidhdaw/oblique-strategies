@@ -10,7 +10,7 @@ function Logs({logEntries, isAuth}) {
 
     useEffect(() => {
         if (!isAuth) {history.push('/')}
-    }, [isAuth])
+    }, [isAuth, history])
 
     return (
         newestFirst.map((logEntry) => (

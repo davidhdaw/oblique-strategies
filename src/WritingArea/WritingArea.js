@@ -115,14 +115,14 @@ function WritingArea({addLog, isAuth}) {
                 </div>
             </article>
             {buttonTried && <h3 className='submit-error'>You haven't met your daily goal yet. Please wait till you've completed your entry to submit it!</h3>}
-            {isAuth && 
+            {isAuth &&
             <footer>
             <div className='word-count'   style={{
             backgroundColor: buttonTried ? 'red' : ((wordCount > 750) ? '#6F9E9E' : ''),
             }}>
                 {wordCount}/750
             </div>
-            <a className='submit-button' onClick={() => submitWriting()}>Submit</a>
+            <button className='submit-button' onClick={() => submitWriting()}>Submit</button>
             </footer>
             }
             
