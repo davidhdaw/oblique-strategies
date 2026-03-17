@@ -11,3 +11,6 @@
     padding: 0;
     text-transform: uppercase;
   }
+.log-preview p {
+  margin: 0;
+}
